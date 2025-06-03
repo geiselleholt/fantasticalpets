@@ -15,4 +15,20 @@
 ### Acknowledgements
 
 ### Wire Frames:
+Data Structure:
 <img src="src/images/dataStructure.png" alt="Wireframe of Data Structure" width="500">
+
+Home Page:
+<img src="src/images/homePage.png" alt="Wireframe of Data Structure" width="500">
+
+Sign In / Sign Up Page:
+<img src="src/images/signInSignUpPage.png" alt="Wireframe of Data Structure" width="500">
+
+Create Page:
+<img src="src/images/createPage.png" alt="Wireframe of Data Structure" width="500">
+
+Pet Page:
+<img src="src/images/petPage.png" alt="Wireframe of Data Structure" width="500">
+
+Collection Page:
+<img src="src/images/collectionPage.png" alt="Wireframe of Data Structure" width="500">
