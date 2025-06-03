@@ -13,3 +13,6 @@
 ### Tools I used
 
 ### Acknowledgements
+
+### Wire Frames:
+<img src="images/dataStructure.png" alt="Alt text for the image" width="500">
