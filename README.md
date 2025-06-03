@@ -8,12 +8,16 @@
 
 ### Objectives of the capstone:
 
-### Ruberic
+### Requirements
 
-### Tools I used
-
+### Tools I used for Frontend:
+- vite
+- axios
+- useState, useEffect from react
+- useNavigate, BrowserRouter from react-router-dom
 
 ### Acknowledgements
+- DeepAi API: https://deepai.org/docs#apis
 
 ### Wire Frames:
 Data Structure:
