@@ -15,4 +15,4 @@
 ### Acknowledgements
 
 ### Wire Frames:
-<img src="images/dataStructure.png" alt="Alt text for the image" width="500">
+<img src="src/images/dataStructure.png" alt="Wireframe of Data Structure" width="500">
