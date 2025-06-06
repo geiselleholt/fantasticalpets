@@ -4,10 +4,10 @@ import HomePage from "./pages/HomePage";
 import PetPage from "./pages/PetPage";
 import CreatePage from "./pages/CreatePage";
 import CollectionPage from "./pages/CollectionPage";
-import SignInSignUpPage from "./pages/SignInPage";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
-
 
 function App() {
   return (
@@ -15,10 +15,11 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/Pet" element={<PetPage />} />
-        <Route path="/Create" element={<CreatePage />} />
-        <Route path="/Collection" element={<CollectionPage />} />
-        <Route path="/SignInSignUp" element={<SignInSignUpPage />} />
+        <Route path="/pet" element={<PetPage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/collection" element={<CollectionPage />} />
+        <Route path="/signIn" element={<SignInPage />} />
+        <Route path="/signUp" element={<SignUpPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
