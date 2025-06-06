@@ -6,6 +6,7 @@ export default function PetPage() {
 
   const createPet = async function () {
     setIsLoading(true);
+    const deepAIAPIKey = process.env.DeepAI_API_Key;
 
     try {
       // code snippet from DeepAI API
@@ -13,7 +14,7 @@ export default function PetPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "api-key": "00622549-0b6d-40f2-af3d-471d50dc8e9a",
+          "api-key": deepAIAPIKey,
         },
         body: JSON.stringify({
           text: "cartoon image of a cute kitten / mouse mix",
@@ -22,6 +23,7 @@ export default function PetPage() {
 
       const data = await resp.json();
       console.log(data);
+      console.log(data.output_url);
 
       setPetImageUrl(data.output_url);
     } catch (err) {

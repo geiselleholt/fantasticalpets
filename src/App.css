@@ -1,5 +1,10 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+}
+
+body {
+    background: radial-gradient(circle, rgb(135, 207, 231), deepskyblue, rgb(12, 80, 103));
+    width: 100vw;
+    height: 100vh;
 }

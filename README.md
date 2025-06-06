@@ -1,14 +1,14 @@
 # Hafa Adai 🌻🐡
 
-## Welcome to my Capstone project for my Per Scholas Software Development 16 week bootcamp 🎊
+## Welcome to my Capstone project for my Per Scholas Software Development training program 🎊
 
-### In order to showcase all of the skills I've learned on this journey, I have developed a full stack web app game for kids called Fantastical Pets. It allows users to choose 2 creatures and morph them into one cute critter. They can decide if they want to give their new pet a name and / or description. They can also add it to their collection see a gallery of all the pets they've created.
+### In order to showcase all of the skills I've aquired on this 16 week learning journey, I have developed a full stack web app game for kids called Fantastical Pets. It allows users to choose 2 creatures and morph them into one cute critter. They can decide if they want to give their new pet a name and / or description. They can also add it to their collection see a gallery of all the pets they've created.
 
-### Link to backend: https://github.com/geiselleholt/FantasicalPetsBackEnd
+### Link to the Backend: https://github.com/geiselleholt/FantasicalPetsBackEnd
 
 ### Objectives of the capstone:
 
-### Requirements
+### Requirements:
 
 ### Tools I used for Frontend:
 - vite
