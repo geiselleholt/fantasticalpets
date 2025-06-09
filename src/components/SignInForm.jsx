@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import ForgotPasswordForm from "./ForgotPasswordForm";
 
 export default function SignInForm() {
+  const { signIn } = useAuth();
   const nav = useNavigate();
 
   const [formData, setFormData] = useState({
     userName: "",
     password: "",
-    securityQuestions: [],
   });
+
+  const [forgotPassword, setForgotPassword] = useState(false);
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,29 +21,36 @@ export default function SignInForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await login(formData);
+      await signIn(formData);
 
-      nav("/dashboard");
+      nav("/collection");
     } catch (err) {
       console.error(err);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="loginForm">
-      <input
-        onChange={handleChange}
-        type="text"
-        name="userName"
-        placeholder="Name"
-      />
-      <input
-        onChange={handleChange}
-        type="password"
-        name="password"
-        placeholder="Password"
-      />
-      <input type="submit" value="SignIn" />
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          type="text"
+          name="userName"
+          placeholder="Name"
+        />
+        <input
+          onChange={handleChange}
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input type="submit" value="SignIn" />
+      </form>
+
+      <p>
+        Forgot password?
+        <button onClick={() => setForgotPassword(true)}>Get Question</button>
+      </p>
       <p>
         Not a User?
         <button
@@ -50,6 +61,9 @@ export default function SignInForm() {
           Sign Up!
         </button>
       </p>
-    </form>
+      {forgotPassword && (
+        <ForgotPasswordForm onClose={() => setForgotPassword(false)} />
+      )}
+    </>
   );
 }

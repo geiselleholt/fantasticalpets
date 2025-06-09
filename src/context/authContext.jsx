@@ -7,7 +7,7 @@ const AuthContext = createContext(); //Created our context with No value
 
 // Created functional component to PROVIDE context
 export default function AuthProvider({ children }) {
-  const { setUser, setPets } = userInfo();
+  const { setUser } = userInfo();
   const [cookies, setCookie, removeCookie] = useCookies();
 
   const baseURL = `http://localhost:3000/api/user`;
@@ -29,7 +29,6 @@ export default function AuthProvider({ children }) {
       removeCookie(cookie);
     });
 
-    setPets(null);
     setUser(null);
   }
 

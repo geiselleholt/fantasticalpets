@@ -2,67 +2,68 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import { userInfo } from "../context/userContext";
 
 export default function Nav() {
-//   const { user, setCart, setUser } = userInfo();
-//   const nav = useNavigate();
+  const { user, setUser } = userInfo();
+  const { cookies, signOut } = useAuth();
+  const nav = useNavigate();
 
-//   useEffect(() => {
-//     async function checkUser() {
-//       if (cookies.token && !user) {
-//         try {
-//           let res = await axios.get(`http://localhost:3000/api/user`, {
-//             headers: { token: cookies.token },
-//           });
+  useEffect(() => {
+    async function checkUser() {
+      if (cookies.token && !user) {
+        try {
+          let res = await axios.get(`http://localhost:3000/api/user`, {
+            headers: { token: cookies.token },
+          });
 
-//           const { username, admin, email } = res.data;
+          const { userName } = res.data;
 
-//           setCart(res.data.cart.items);
-//           setUser({ username, email, admin });
-//         } catch (err) {
-//           console.error(err.message);
-//         }
-//       }
-//     }
+          setUser({ userName });
+        } catch (err) {
+          console.error(err.message);
+        }
+      }
+    }
 
-//     checkUser();
-//   }, []);
+    checkUser();
+  }, []);
 
-//   function handleLogout() {
-//     logout();
+  function handleLogout() {
+    signOut();
 
-//     nav("/");
-//   }
+    nav("/");
+  }
   return (
-      <nav >
-          <h1>NavBar</h1>
-      {/* <ul>
+    <nav>
+      <ul>
         <li>
-          <Link to="/">HomePage</Link>
+          <Link to="/">Home</Link>
         </li>
 
         {cookies.token ? (
           <>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/collection">Collection</Link>
             </li>
 
-            {user && user.admin ? (
+            {user ? (
               <li>
-                <Link to="/create">Create Form</Link>
+                <Link to="/create">Create</Link>
               </li>
             ) : null}
 
             <li>
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleLogout}>SignOut</button>
             </li>
           </>
         ) : (
           <li>
-            <Link to="/auth">SignIn/SignUp</Link>
+            <Link to="/signIn">SignIn</Link>
           </li>
         )}
-      </ul> */}
+      </ul>
     </nav>
   );
 }
