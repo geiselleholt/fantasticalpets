@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,59 +9,70 @@ export default function Nav() {
   const { user, setUser } = userInfo();
   const { cookies, signOut } = useAuth();
   const nav = useNavigate();
+  const location = useLocation();
 
-  useEffect(() => {
-    async function checkUser() {
-      if (cookies.token && !user) {
-        try {
-          let res = await axios.get(`http://localhost:3000/api/user`, {
-            headers: { token: cookies.token },
-          });
+  // useEffect(() => {
+  //   async function checkUser() {
+  //     if (cookies.token && !user) {
+  //       try {
+  //         let res = await axios.get(`http://localhost:3000/api/user`, {
+  //           headers: { token: cookies.token },
+  //         });
 
-          const { userName } = res.data;
+  //         const { userName } = res.data;
 
-          setUser({ userName });
-        } catch (err) {
-          console.error(err.message);
-        }
-      }
-    }
+  //         setUser({ userName });
+  //       } catch (err) {
+  //         console.error(err.message);
+  //       }
+  //     }
+  //   }
 
-    checkUser();
-  }, []);
+  //   checkUser();
+  // }, []);
 
   function handleLogout() {
     signOut();
 
     nav("/");
   }
+
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
+        <li>{location.pathname !== "/" && <Link to="/">Home</Link>}</li>
 
         {cookies.token ? (
           <>
             <li>
-              <Link to="/collection">Collection</Link>
+              {location.pathname !== "/collection" && (
+                <Link to="/collection">Collection</Link>
+              )}
             </li>
 
-            {user ? (
-              <li>
+            <li>
+              {location.pathname !== "/create" && (
                 <Link to="/create">Create</Link>
-              </li>
-            ) : null}
+              )}
+            </li>
 
             <li>
-              <button onClick={handleLogout}>SignOut</button>
+              <span onClick={handleLogout}>SignOut</span>
             </li>
           </>
         ) : (
-          <li>
-            <Link to="/signIn">SignIn</Link>
-          </li>
+          <ul>
+            <li>
+              {location.pathname !== "/signIn" && (
+                <Link to="/signIn">SignIn</Link>
+              )}
+            </li>
+            <li>
+              {location.pathname !== "/signUp" && (
+                <Link to="/signUp">SignUp</Link>
+              )}
+            </li>
+          </ul>
         )}
       </ul>
     </nav>
