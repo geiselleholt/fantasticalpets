@@ -13,7 +13,6 @@ export default function Nav() {
 
   function handleLogout() {
     signOut();
-
     nav("/");
   }
 
