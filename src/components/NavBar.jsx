@@ -11,26 +11,6 @@ export default function Nav() {
   const nav = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   async function checkUser() {
-  //     if (cookies.token && !user) {
-  //       try {
-  //         let res = await axios.get(`http://localhost:3000/api/user`, {
-  //           headers: { token: cookies.token },
-  //         });
-
-  //         const { userName } = res.data;
-
-  //         setUser({ userName });
-  //       } catch (err) {
-  //         console.error(err.message);
-  //       }
-  //     }
-  //   }
-
-  //   checkUser();
-  // }, []);
-
   function handleLogout() {
     signOut();
 
@@ -40,7 +20,7 @@ export default function Nav() {
   return (
     <nav>
       <ul>
-        <li>{location.pathname !== "/" && <Link to="/">Home</Link>}</li>
+        <li>{location.pathname !== "/" && !cookies.token && <Link to="/">Home</Link>}</li>
 
         {cookies.token ? (
           <>

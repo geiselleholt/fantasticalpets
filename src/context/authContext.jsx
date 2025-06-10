@@ -82,7 +82,6 @@ export default function AuthProvider({ children }) {
     ["token"].forEach((cookie) => {
       removeCookie(cookie);
     });
-
     setUser(null);
   }
 
