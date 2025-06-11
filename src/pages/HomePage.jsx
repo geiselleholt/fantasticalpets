@@ -24,22 +24,50 @@ export default function HomePage() {
         <section className="example">
           <div>
             <section>
-              <img src={bear} alt="cute bear" width={150} />
-              <img src={dragon} alt="cute dragon" width={150} />
+              <img
+                src="https://images.deepai.org/art-image/94e1fea3887b49fd8518af6e1b41bdee/cartoon-image-of-a-cute-bear-80c20b.jpg"
+                alt="cute bear"
+                width={150}
+              />
+              <img
+                src="https://images.deepai.org/art-image/376a5e31c16f429f916936a544f06169/cartoon-image-of-a-cute-dragon-a80647.jpg"
+                alt="cute dragon"
+                width={150}
+              />
             </section>
-            <img src={beardragon} alt="cute bear dragon hybrid" width={150} />
+            <img src="https://images.deepai.org/art-image/eee0ead1a9bd41cab17c86d168899758/cartoon-image-of-a-cute-smiling-bear-dragon-hybrid-ec.jpg" alt="cute bear dragon hybrid" width={150} />
           </div>
           <div>
             <section>
-              <img src={fox} alt="cute fox" width={150} />
-              <img src={octopus} alt="cute octopus" width={150} />
+              <img
+                src="https://images.deepai.org/art-image/67f3809664884a6695418a1198ea1974/cartoon-image-of-a-cute-fox.jpg"
+                alt="cute fox"
+                width={150}
+              />
+              <img
+                src="https://images.deepai.org/art-image/1fe148baeec847a3bcbb180fe8d4f3f0/cartoon-image-of-a-cute-octopus.jpg"
+                alt="cute octopus"
+                width={150}
+              />
             </section>
-            <img src={foxtopus} alt="cute foxtopus hybrid" width={150} />
+            <img
+              src="https://images.deepai.org/art-image/7a74c628f7944606a559fed526844df1/cartoon-image-of-a-cute-smiling-fox-octopus-hybrid-wi.jpg"
+              alt="cute foxtopus hybrid"
+              width={150}
+            />
           </div>
           <div>
             <section>
-              <img src={lion} alt="cute lion" width={150} />
-              <img src={butterfly} alt="cute butterfly" width={150} />
+              <img
+                src="https://images.deepai.org/art-image/5c156fa98ae24a47b773246b0bc49d83/cartoon-image-of-a-cute-lion.jpg"
+                alt="cute lion"
+                width={150}
+              />
+              <img
+                src="https://images.deepai.org/art-image/e68605ff26b348eeb1afa2de7fe7b952/cartoon-image-of-a-cute-butterfly-4ace05.jpg"
+                alt="cute butterfly"
+                width={150}
+              />
             </section>
             <img
               src={lionbutterfly}

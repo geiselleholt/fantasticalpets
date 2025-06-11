@@ -13,7 +13,7 @@ export default function SignInForm() {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [forgotPassword, setForgotPassword] = useState(false);
 
   function handleChange(e) {
@@ -22,7 +22,7 @@ export default function SignInForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
 
     try {
       await signIn(formData);
@@ -31,7 +31,7 @@ export default function SignInForm() {
     } catch (err) {
       alert(err.message);
       console.error(err);
-      setLoading(false);
+      setIsLoading(false);
       return;
     }
   }
@@ -45,7 +45,7 @@ export default function SignInForm() {
           type="text"
           name="userName"
           placeholder="Enter Name..."
-          disabled={loading}
+          disabled={isLoading}
         />
         <input
           onChange={handleChange}
@@ -53,10 +53,10 @@ export default function SignInForm() {
           type="password"
           name="password"
           placeholder="Enter Password..."
-          disabled={loading}
+          disabled={isLoading}
         />
-        <button type="submit" disabled={loading}>
-          {loading ? (
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? (
             <div>
               <img
                 src={loadingJuggle}
@@ -83,9 +83,7 @@ export default function SignInForm() {
           Sign Up
         </button>
       </p>
-      {forgotPassword && (
-        <ForgotPasswordForm />
-      )}
+      {forgotPassword && <ForgotPasswordForm />}
     </>
   );
 }

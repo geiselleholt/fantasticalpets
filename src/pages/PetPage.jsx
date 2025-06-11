@@ -1,55 +1,136 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import axios from "axios";
+import loadingJuggle from "../images/loadingJuggle.gif";
 
 export default function PetPage() {
+  const location = useLocation();
+  const nav = useNavigate();
+  const { cookies } = useAuth();
+
+  const hybridAnimals = location.state?.hybridAnimals || [];
+  const animal1 = hybridAnimals[0]?.alt;
+  const animal2 = hybridAnimals[1]?.alt;
+
   const [petImageUrl, setPetImageUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
-  const createPet = async function () {
-    setIsLoading(true);
-    const deepAIAPIKey = process.env.DeepAI_API_Key;
+  const [petName, setPetName] = useState("");
+  const [petDescription, setPetDescription] = useState("");
 
+  const API_BASE_URL = "http://localhost:3000/api";
+
+  const getHybridImage = async () => {
     try {
-      // code snippet from DeepAI API
-      const resp = await fetch("https://api.deepai.org/api/text2img", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": deepAIAPIKey,
-        },
-        body: JSON.stringify({
-          text: "cartoon image of a cute kitten / mouse mix",
-        }),
+      const response = await axios.post(`${API_BASE_URL}/image`, {
+        animal1,
+        animal2,
       });
-
-      const data = await resp.json();
-      console.log(data);
-      console.log(data.output_url);
-
-      setPetImageUrl(data.output_url);
+      setPetImageUrl(response.data.imageUrl);
     } catch (err) {
-      console.error("Error creating pet:", err);
+      console.error(err);
+      alert(err.message);
+      setPetImageUrl("");
+      return;
     } finally {
       setIsLoading(false);
     }
   };
 
+  const handleSaveToCollection = async () => {
+    setIsSaving(true);
+
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}/pet`,
+        {
+          name: petName,
+          description: petDescription,
+          animal1: animal1,
+          animal2: animal2,
+          imageUrl: petImageUrl,
+        },
+        {
+          headers: {
+            "x-auth-token": cookies.token,
+          },
+        }
+      );
+
+      nav("/collection");
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   useEffect(() => {
-    createPet();
+    setIsLoading(true);
+    setPetImageUrl("");
+    getHybridImage();
   }, []);
 
   return (
     <>
-      <h1>Pet Page</h1>
-      {isLoading && <p>Generating your pet...</p>}
-      {petImageUrl && (
+      <h1>Your Fantastical Hybrid Pet!</h1>
+      {isLoading && (
         <div>
-          <h2>Here's Your New Pet!</h2>
           <img
-            src={petImageUrl}
-            alt="AI-generated pet"
-            style={{ maxWidth: "100%", height: "auto" }}
+            src={loadingJuggle}
+            alt="cartoon of loading juggler"
+            width={100}
           />
         </div>
+      )}
+      {petImageUrl && (
+        <>
+          <h2>Here's Your New Pet!</h2>
+          <img src={petImageUrl} alt={`Hybrid of ${animal1} and ${animal2}`} />
+          <div>
+            <section>
+              <h3>Do you like it?</h3>
+              <input
+                type="text"
+                placeholder="Pet Name (optional)"
+                value={petName}
+                onChange={(e) => setPetName(e.target.value)}
+              />
+              <textarea
+                placeholder="Describe your pet (optional)"
+                value={petDescription}
+                onChange={(e) => setPetDescription(e.target.value)}
+                rows="3"
+              ></textarea>
+              <button onClick={handleSaveToCollection} disabled={isSaving}>
+                {isSaving ? (
+                  <div>
+                    <img
+                      src={loadingJuggle}
+                      alt="cartoon of loading juggler"
+                      width={100}
+                    />
+                  </div>
+                ) : (
+                  "Save to Your Collection"
+                )}
+              </button>
+            </section>
+
+            <section>
+              <h3>Don't Like It?</h3>
+              <button onClick={() => nav("/create")}>
+                Create Another Hybrid
+              </button>
+              <button onClick={() => nav("/collection")}>
+                Go To Your Collection
+              </button>
+            </section>
+          </div>
+        </>
       )}
     </>
   );

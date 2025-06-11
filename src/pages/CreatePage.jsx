@@ -4,7 +4,7 @@ import DisplayCategory from "../components/DisplayCategory";
 import categoriesData from "../data/categoriesData";
 
 export default function CreatePage() {
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const [selectedImages, setSelectedImages] = useState([]);
 
   const handleImageSelect = (image) => {
@@ -25,11 +25,7 @@ export default function CreatePage() {
   };
 
   const handleSubmit = () => {
-    if (selectedImages.length === 2) {
-      navigate("/pet", { state: { hybridAnimals: selectedImages } });
-    } else {
-      alert("Please select 2 animals");
-    }
+    nav("/pet", { state: { hybridAnimals: selectedImages } });
   };
 
   return (
@@ -55,11 +51,11 @@ export default function CreatePage() {
           </section>
         </div>
 
-        <div>
-          <button onClick={handleSubmit} disabled={selectedImages.length !== 2}>
-            See Your Fantastical Pet
-          </button>
-        </div>
+        {selectedImages.length === 2 && (
+          <div>
+            <button onClick={handleSubmit}>See Your Fantastical Pet</button>
+          </div>
+        )}
 
         <div className="categories">
           {categoriesData.map((category) => (

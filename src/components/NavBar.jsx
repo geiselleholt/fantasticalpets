@@ -1,12 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
-import { userInfo } from "../context/userContext";
 
 export default function Nav() {
-  const { user, setUser } = userInfo();
   const { cookies, signOut } = useAuth();
   const nav = useNavigate();
   const location = useLocation();
@@ -19,7 +15,11 @@ export default function Nav() {
   return (
     <nav>
       <ul>
-        <li>{location.pathname !== "/" && !cookies.token && <Link to="/">Home</Link>}</li>
+        <li>
+          {location.pathname !== "/" && !cookies.token && (
+            <Link to="/">Home</Link>
+          )}
+        </li>
 
         {cookies.token ? (
           <>

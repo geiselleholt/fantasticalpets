@@ -18,12 +18,12 @@ const categoriesData = [
         alt: "Tiger",
       },
       {
-        id: "w3",
+        id: "w4",
         src: "https://images.deepai.org/art-image/8fc3f37c24b641d2a1c4000bac351f0f/cartoon-image-of-a-cute-panda-de3154.jpg",
         alt: "Panda",
       },
       {
-        id: "w3",
+        id: "w5",
         src: "https://images.deepai.org/art-image/8bebc2cb78334aa2963928cf2472f013/cartoon-image-of-a-cute-monkey-c68e15.jpg",
         alt: "Monkey",
       },
@@ -33,7 +33,7 @@ const categoriesData = [
     name: "Forest Critters",
     images: [
       {
-        id: "c5",
+        id: "c1",
         src: "https://images.deepai.org/art-image/94e1fea3887b49fd8518af6e1b41bdee/cartoon-image-of-a-cute-bear-80c20b.jpg",
         alt: "Bear",
       },
@@ -158,19 +158,19 @@ const categoriesData = [
         alt: "Butterfly",
       },
       {
-        id: "w4",
+        id: "h2",
         src: "https://images.deepai.org/art-image/e2522f3ea4b44d27b900ea3ea7222b3a/cartoon-image-of-a-cute-kitten.jpg",
-        alt: "Cat",
+        alt: "Kitten",
       },
       {
-        id: "h2",
+        id: "h3",
         src: "https://images.deepai.org/art-image/6277c8a2de654fd9bdf020e93b0e48db/cartoon-image-of-a-cute-bumble-bee.jpg",
         alt: "Bee",
       },
       {
         id: "h4",
         src: "https://images.deepai.org/art-image/6b64cfd2e3d344d4a4cf97778e16f4f8/cartoon-image-of-a-cute-puppy.jpg",
-        alt: "Dog",
+        alt: "Puppy",
       },
       {
         id: "h5",
@@ -183,27 +183,27 @@ const categoriesData = [
     name: "Magestics",
     images: [
       {
-        id: "my1",
+        id: "m1",
         src: "https://images.deepai.org/art-image/376a5e31c16f429f916936a544f06169/cartoon-image-of-a-cute-dragon-a80647.jpg",
         alt: "Dragon",
       },
       {
-        id: "my2",
+        id: "m2",
         src: "https://images.deepai.org/art-image/d0b36c003d584dbd9211a7c33fbac0a9/cartoon-image-of-a-cute-smiling-unicorn.jpg",
         alt: "Unicorn",
       },
       {
-        id: "my3",
+        id: "m3",
         src: "https://images.deepai.org/art-image/4aad495798ca483d8914b58c57210a92/cartoon-image-of-a-cute-smiling-mermaid-d230d7.jpg",
         alt: "Mermaid",
       },
       {
-        id: "my3",
+        id: "m4",
         src: "https://images.deepai.org/art-image/c9466b072f1a47c680856d9c11d13a6c/cartoon-image-of-a-cute-smiling-monster.jpg",
         alt: "Monster",
       },
       {
-        id: "my5",
+        id: "m5",
         src: "https://images.deepai.org/art-image/6662f16c9c3a498b92f289bf3a4a87c9/cartoon-image-of-a-cute-smiling-big-foot.jpg",
         alt: "Big Foot",
       },
