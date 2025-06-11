@@ -46,7 +46,7 @@ export default function CreatePage() {
           <section className="selections">
             {selectedImages.map((img) => (
               <div key={img.id}>
-                <img src={img.src} alt={img.alt} />
+                <img src={img.src} alt={img.alt} width={150} />
                 <div>
                   <span>{img.alt}</span>
                 </div>

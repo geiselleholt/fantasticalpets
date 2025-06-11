@@ -49,3 +49,12 @@ nav ul li {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.imageContainer {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 120px;
+  margin: auto;
+  background-color: antiquewhite;
+}
