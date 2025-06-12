@@ -61,7 +61,7 @@ export default function AuthProvider({ children }) {
 
   async function getAnswers(username, answer1, answer2) {
     try {
-      console.log(username, answer1, answer2)
+      console.log(username, answer1, answer2);
       const res = await axios.post(`${baseURL}/answers`, {
         userName: username,
         answer1: answer1,
@@ -70,7 +70,7 @@ export default function AuthProvider({ children }) {
       setCookie("token", res.data.token);
       return res.data;
     } catch (error) {
-      console.error(error)
+      console.error(error);
       if (error.response?.data?.msg === "Invalid Credentials") {
         throw new Error("Incorrect answer(s)");
       }
@@ -83,6 +83,7 @@ export default function AuthProvider({ children }) {
       removeCookie(cookie);
     });
     setUser(null);
+    nav("/");
   }
 
   const value = useMemo(

@@ -15,7 +15,6 @@ export default function PetPage() {
 
   const [petImageUrl, setPetImageUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
 
   const [petName, setPetName] = useState("");
   const [petDescription, setPetDescription] = useState("");
@@ -40,7 +39,7 @@ export default function PetPage() {
   };
 
   const handleSaveToCollection = async () => {
-    setIsSaving(true);
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
@@ -64,7 +63,7 @@ export default function PetPage() {
       console.error(err);
       alert(err.message);
     } finally {
-      setIsSaving(false);
+      setIsLoading(false);
     }
   };
 
@@ -88,25 +87,30 @@ export default function PetPage() {
       )}
       {petImageUrl && (
         <>
-          <h2>Here's Your New Pet!</h2>
           <img src={petImageUrl} alt={`Hybrid of ${animal1} and ${animal2}`} />
-          <div>
+          <div className="savePet">
             <section>
               <h3>Do you like it?</h3>
-              <input
-                type="text"
-                placeholder="Pet Name (optional)"
-                value={petName}
-                onChange={(e) => setPetName(e.target.value)}
-              />
-              <textarea
-                placeholder="Describe your pet (optional)"
-                value={petDescription}
-                onChange={(e) => setPetDescription(e.target.value)}
-                rows="3"
-              ></textarea>
-              <button onClick={handleSaveToCollection} disabled={isSaving}>
-                {isSaving ? (
+              <ul>
+                <li>
+                  <input
+                    type="text"
+                    placeholder="Pet Name (optional)"
+                    value={petName}
+                    onChange={(e) => setPetName(e.target.value)}
+                  />
+                </li>
+                <li>
+                  <textarea
+                    placeholder="Describe your pet (optional)"
+                    value={petDescription}
+                    onChange={(e) => setPetDescription(e.target.value)}
+                    rows="3"
+                  ></textarea>
+                </li>
+              </ul>
+              <button onClick={handleSaveToCollection} disabled={isLoading}>
+                {isLoading ? (
                   <div>
                     <img
                       src={loadingJuggle}

@@ -58,3 +58,12 @@ nav ul li {
   margin: auto;
   background-color: antiquewhite;
 }
+
+.savePet {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.savePet ul {
+    list-style: none;
+}

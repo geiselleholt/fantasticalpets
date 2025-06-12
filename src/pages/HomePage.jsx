@@ -1,13 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import bear from "../images/bear.jpeg";
-import beardragon from "../images/beardragon.jpeg";
-import dragon from "../images/dragon.jpeg";
-import fox from "../images/fox.jpeg";
-import octopus from "../images/octopus.jpeg";
-import foxtopus from "../images/foxtopus.jpeg";
-import lion from "../images/lion.jpeg";
-import butterfly from "../images/butterfly.jpeg";
-import lionbutterfly from "../images/lionbutterfly.jpeg";
 
 export default function HomePage() {
   const nav = useNavigate();
@@ -35,7 +26,11 @@ export default function HomePage() {
                 width={150}
               />
             </section>
-            <img src="https://images.deepai.org/art-image/eee0ead1a9bd41cab17c86d168899758/cartoon-image-of-a-cute-smiling-bear-dragon-hybrid-ec.jpg" alt="cute bear dragon hybrid" width={150} />
+            <img
+              src="https://images.deepai.org/art-image/eee0ead1a9bd41cab17c86d168899758/cartoon-image-of-a-cute-smiling-bear-dragon-hybrid-ec.jpg"
+              alt="cute bear dragon hybrid"
+              width={150}
+            />
           </div>
           <div>
             <section>
@@ -70,7 +65,7 @@ export default function HomePage() {
               />
             </section>
             <img
-              src={lionbutterfly}
+              src="https://images.deepai.org/art-image/2159579388514583839276522f6d7673/cartoon-image-of-a-cute-butterfly-lion-hybrid-263152.jpg"
               alt="cute lion butterfly hybrid"
               width={150}
             />
