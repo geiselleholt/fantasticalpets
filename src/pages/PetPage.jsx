@@ -42,7 +42,7 @@ export default function PetPage() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(
+      await axios.post(
         `${API_BASE_URL}/pet`,
         {
           name: petName,

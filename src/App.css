@@ -67,3 +67,16 @@ nav ul li {
 .savePet ul {
     list-style: none;
 }
+
+.petCard {
+  border: 2px solid yellow;
+  background-color: antiquewhite;
+  width: fit-content;
+}
+
+.petContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 20px;
+}

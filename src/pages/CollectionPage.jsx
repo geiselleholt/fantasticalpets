@@ -7,7 +7,7 @@ import DisplayPet from "../components/DisplayPet.jsx";
 
 export default function CollectionPage() {
   const { cookies } = useAuth();
-  const navigate = useNavigate();
+  const nav = useNavigate();
 
   const [pets, setPets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +40,7 @@ export default function CollectionPage() {
     setIsLoading(true);
 
     try {
-      const response = await axios.put(
+      await axios.put(
         `${API_BASE_URL}/pet/${petId}`,
         { name: newName, description: newDescription },
         {
@@ -92,40 +92,30 @@ export default function CollectionPage() {
       {pets.length === 0 ? (
         <div>
           <p>You don't have any pets in your collection yet!</p>
-          <button onClick={() => navigate("/create")}>
+          <button onClick={() => nav("/create")}>
             Create Your First Fantastical Pet
           </button>
         </div>
       ) : (
-        <div>
-          {pets.map((pet) => (
-            <div
-              key={pet._id}
-              style={{
-                border: "1px solid #ccc",
-                padding: "15px",
-                margin: "15px 0",
-                borderRadius: "8px",
-              }}
-            >
-              {/* Render DisplayPet for each pet */}
-              <DisplayPet
-                pet={pet}
-                handleSaveChanges={handleSaveChanges} // Pass save changes function
-                handleDeletePet={handleDeletePet} // Pass delete function
-                isLoading={isLoading} // Pass global loading state for button disabling/loading indicators
-                error={error} // Pass global error state for DisplayPet/PetForm to show operation-specific errors
-                loadingJuggle={loadingJuggle} // Pass loading GIF
-              />
-            </div>
-          ))}
-        </div>
+        <>
+          <button onClick={() => nav("/create")}>
+            Create More Fantasical Pets
+          </button>
+          <div className="petContainer">
+            {pets.map((pet) => (
+              <div key={pet._id}>
+                <DisplayPet
+                  pet={pet}
+                  handleSaveChanges={handleSaveChanges}
+                  handleDeletePet={handleDeletePet}
+                  isLoading={isLoading}
+                />
+              </div>
+            ))}
+          </div>
+        </>
       )}
-      <div>
-        <button onClick={() => navigate("/create")}>
-          Create More Fantasical Pets
-        </button>
-      </div>
+      <div></div>
     </div>
   );
 }

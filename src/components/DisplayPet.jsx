@@ -13,14 +13,13 @@ export default function DisplayPet({
     alert("Are you sure you want to delete this pet?");
     handleDeletePet(pet._id);
   };
-
   if (isEditing) {
     return (
       <EditPetForm
         petId={pet._id}
         currentName={pet.name}
         currentDescription={pet.description}
-        currentImageUrl={pet.image?.imageUrl}
+        currentImageUrl={pet.image.imageUrl}
         handleSaveChanges={handleSaveChanges}
         handleCancelEdit={() => setIsEditing(false)}
         isLoading={isLoading}
@@ -29,19 +28,24 @@ export default function DisplayPet({
   }
 
   return (
-    <div>
-      {pet.image?.imageUrl && (
-        <img src={pet.image.imageUrl} alt={pet.name || "Hybrid Pet"} />
-      )}
-      <h2>{pet.name || ""}</h2>
-      <p>{pet.description || ""}</p>
-
-      <button onClick={() => setIsEditing(true)} disabled={isLoading}>
-        Edit
-      </button>
-      <button onClick={handleDeleteConfirm} disabled={isLoading}>
-        Delete
-      </button>
+    <div className="petCard">
+      <section>
+        <img
+          src={pet.image.imageUrl}
+          alt={pet.name || "Hybrid Pet"}
+          width={100}
+        />
+        <h3>{pet.name || ""}</h3>
+        <p>{pet.description || ""}</p>
+      </section>
+      <section>
+        <button onClick={() => setIsEditing(true)} disabled={isLoading}>
+          Edit
+        </button>
+        <button onClick={handleDeleteConfirm} disabled={isLoading}>
+          Delete
+        </button>
+      </section>
     </div>
   );
 }

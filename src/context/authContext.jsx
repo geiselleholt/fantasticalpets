@@ -83,7 +83,6 @@ export default function AuthProvider({ children }) {
       removeCookie(cookie);
     });
     setUser(null);
-    nav("/");
   }
 
   const value = useMemo(

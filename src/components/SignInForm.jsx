@@ -27,7 +27,7 @@ export default function SignInForm() {
     try {
       await signIn(formData);
 
-      nav("/collection");
+      nav("/create");
     } catch (err) {
       alert(err.message);
       console.error(err);

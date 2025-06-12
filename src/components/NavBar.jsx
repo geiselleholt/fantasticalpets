@@ -7,7 +7,7 @@ export default function Nav() {
   const nav = useNavigate();
   const location = useLocation();
 
-  function handleLogout() {
+  function handleSignOut() {
     signOut();
     nav("/");
   }
@@ -36,7 +36,7 @@ export default function Nav() {
             </li>
 
             <li>
-              <span onClick={handleLogout}>SignOut</span>
+              <span onClick={handleSignOut}>SignOut</span>
             </li>
           </>
         ) : (

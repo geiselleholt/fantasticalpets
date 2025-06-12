@@ -13,6 +13,8 @@ export default function EditPetForm({
   const [name, setName] = useState(currentName);
   const [description, setDescription] = useState(currentDescription);
 
+  console.log(currentImageUrl)
+
   useEffect(() => {
     setName(currentName);
     setDescription(currentDescription);
@@ -26,7 +28,7 @@ export default function EditPetForm({
     <div>
       <h3>Edit Pet</h3>
       {currentImageUrl && (
-        <img src={currentImageUrl} alt={currentName || "Pet Image"} />
+        <img src={currentImageUrl} alt={currentName || "Pet Image"} width={150}/>
       )}
       <div>
         <label>Name:</label>
@@ -48,7 +50,7 @@ export default function EditPetForm({
       </div>
       <button onClick={onSave} disabled={isLoading}>
         {isLoading ? (
-          <img src={loadingJuggle} alt="loading juggler" width={100} />
+          <img src={loadingJuggle} alt="cartoon of loading juggler" width={100} />
         ) : (
           "Save Changes"
         )}
