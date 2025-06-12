@@ -1,4 +1,4 @@
-#root {
+/* #root {
   margin: 0 auto;
   text-align: center;
 }
@@ -65,7 +65,7 @@ nav ul li {
 }
 
 .savePet ul {
-    list-style: none;
+  list-style: none;
 }
 
 .petCard {
@@ -79,4 +79,4 @@ nav ul li {
   justify-content: space-evenly;
   margin: auto;
   margin-top: 20px;
-}
+} */
