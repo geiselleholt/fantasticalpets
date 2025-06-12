@@ -73,14 +73,15 @@ export default function HomePage() {
         </section>
       </div>
       <div>
+        <p>Build Your Dream Collection!</p>
         <p>
-          Build Your Dream Collection: Save all your creature creations in your
-          own personal fantastical pet family
+          Save all your creature creations in your own personal fantastical pet
+          family
         </p>
       </div>
+      <p>Make your pet truly fantastic!</p>
       <p>
-        Personalize Your Pal: Name your new friend, describe its special
-        abilities, its favorite food, and its living environment
+        What's its name? What amazing adventures does it have? What's its favorite snack? You decide! Or, if you like surprises, our magical AI can invent a cute name and a silly description for you!
       </p>
       <h2>Ready to Get Started?</h2>
       <div>

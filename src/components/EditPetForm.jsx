@@ -13,8 +13,6 @@ export default function EditPetForm({
   const [name, setName] = useState(currentName);
   const [description, setDescription] = useState(currentDescription);
 
-  console.log(currentImageUrl)
-
   useEffect(() => {
     setName(currentName);
     setDescription(currentDescription);
