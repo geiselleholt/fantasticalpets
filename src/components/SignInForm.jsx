@@ -50,7 +50,7 @@ export default function SignInForm() {
         <input
           onChange={handleChange}
           value={formData.password}
-          type="password"
+          type="text"
           name="password"
           placeholder="Enter Password..."
           disabled={isLoading}

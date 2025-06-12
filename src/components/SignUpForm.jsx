@@ -72,7 +72,7 @@ export default function SignUpForm() {
         <input
           onChange={handleChange}
           value={formData.password}
-          type="password"
+          type="text"
           name="password"
           placeholder=" Enter Password..."
           disabled={loading}

@@ -1,11 +1,10 @@
-// ForgotPasswordForm.js
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import loadingJuggle from "../images/loadingJuggle.gif";
 
 export default function ForgotPasswordForm({}) {
-  const { getQuestions, getAnswers, signIn } = useAuth();
+  const { getQuestions, getAnswers } = useAuth();
   const nav = useNavigate();
 
   const [username, setUsername] = useState("");

@@ -81,7 +81,12 @@ export default function HomePage() {
       </div>
       <p>Make your pet truly fantastic!</p>
       <p>
-        What's its name? What amazing adventures does it have? What's its favorite snack? You decide! Or, if you like surprises, our magical AI can invent a cute name and a silly description for you!
+        What's its name? What amazing adventures does it have? What's its
+        favorite snack? You decide!
+      </p>
+      <p>
+        Or, if you like surprises, our magical AI can invent a cute name and a
+        silly description just for you!
       </p>
       <h2>Ready to Get Started?</h2>
       <div>
