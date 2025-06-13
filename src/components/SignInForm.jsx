@@ -40,7 +40,7 @@ export default function SignInForm() {
       <h1
         className="text-5xl md:text-6xl font-extrabold mb-8 leading-tight text-center
                      bg-gradient-to-r from-green-600 via-blue-400 via-green-600 to-pink-600 bg-clip-text text-transparent
-                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)]"
+                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-gradient-text"
       >
         Sign In to Your Fantastical World!
       </h1>
@@ -102,7 +102,7 @@ export default function SignInForm() {
           </button>
         </p>
         <p className="text-sm text-black text-center">
-          Not a User?{" "}
+          Not a User?
           <button
             onClick={() => {
               nav("/signUp");

@@ -72,11 +72,11 @@ export default function DisplayPet({
 
         {showConfirmModal && (
           <dialog id="my_modal_8" className="modal modal-open">
-            <div className="modal-box text-black text-center card bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl backdrop-blur-sm border border-red-400">
+            <div className="modal-box text-black text-center card bg-pink-100 bg-opacity-90 p-8 rounded-xl shadow-2xl backdrop-blur-sm border border-red-400">
               <h3 className="font-bold text-lg text-red-600 mb-4">
                 Confirm Deletion
               </h3>
-              <p className="py-4">
+              <p className="py-4 text-bold">
                 Are you sure you want to delete "{pet.name || "this pet"}"?
               </p>
               <div className="modal-action flex justify-center gap-4">

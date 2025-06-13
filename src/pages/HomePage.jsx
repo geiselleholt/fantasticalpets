@@ -33,7 +33,7 @@ export default function HomePage() {
         </p>
 
         <section className="flex flex-wrap justify-center gap-8 mb-8 ">
-          <div className="card compact bg-yellow-100 bg-opacity-20 rounded-xl shadow-xxlg border border-blue-300 p-4 flex flex-col items-center">
+          <div className="card compact bg-yellow-100 animate-pulse-subtle bg-opacity-20 rounded-xl shadow-xxlg border border-blue-300 p-4 flex flex-col items-center">
             <section className="flex mb-4">
               <img
                 src="https://images.deepai.org/art-image/94e1fea3887b49fd8518af6e1b41bdee/cartoon-image-of-a-cute-bear-80c20b.jpg"
@@ -59,7 +59,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="card compact bg-yellow-100 bg-opacity-20 rounded-xl shadow-lg border border-blue-300 p-4 flex flex-col items-center">
+          <div className="card compact bg-yellow-100 animate-pulse-subtle bg-opacity-20 rounded-xl shadow-lg border border-blue-300 p-4 flex flex-col items-center">
             <section className="flex mb-4">
               <img
                 src="https://images.deepai.org/art-image/67f3809664884a6695418a1198ea1974/cartoon-image-of-a-cute-fox.jpg"
@@ -85,7 +85,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="card compact bg-yellow-100 bg-opacity-20 rounded-xl shadow-lg border border-blue-300 p-4 flex flex-col items-center">
+          <div className="card compact bg-yellow-100 animate-pulse-subtle bg-opacity-20 rounded-xl shadow-lg border border-blue-300 p-4 flex flex-col items-center">
             <section className="flex mb-4">
               <img
                 src="https://images.deepai.org/art-image/5c156fa98ae24a47b773246b0bc49d83/cartoon-image-of-a-cute-lion.jpg"

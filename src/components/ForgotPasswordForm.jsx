@@ -54,7 +54,6 @@ export default function ForgotPasswordForm({}) {
 
     try {
       await getAnswers(username, answer1, answer2);
-      console.log(`front: ${answer1}, ${answer2}`);
 
       nav("/create");
     } catch (err) {
@@ -109,13 +108,12 @@ export default function ForgotPasswordForm({}) {
               </button>
             </form>
             <p className="text-sm text-black mt-6 text-center">
-              Not Working?{" "}
               <button
                 onClick={() => nav("/signUp")}
                 disabled={loading}
                 className="btn btn-link text-secondary p-0 min-h-0 h-auto align-baseline"
               >
-                Sign Up Again
+                Sign Up
               </button>
             </p>
           </>
@@ -167,13 +165,13 @@ export default function ForgotPasswordForm({}) {
               </button>
             </form>
             <p className="text-sm text-black mt-6 text-center">
-              Not Working?...{" "}
+              Can't remember your answers?
               <button
                 onClick={() => nav("/signUp")}
                 disabled={loading}
                 className="btn btn-link text-secondary p-0 min-h-0 h-auto align-baseline"
               >
-                Sign Up Again
+                Sign Up
               </button>
             </p>
           </>
