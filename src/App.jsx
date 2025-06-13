@@ -12,20 +12,22 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
-    <>
+    <div className="bg-gradient-to-br from-blue-300 via-sky-500 to-blue-800 min-h-screen font-inter text-white">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/pet" element={<PetPage />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/collection" element={<CollectionPage />} />
-        </Route>
-        <Route path="/signIn" element={<SignInPage />} />
-        <Route path="/signUp" element={<SignUpPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+      <div className="pt-20">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/pet" element={<PetPage />} />
+            <Route path="/create" element={<CreatePage />} />
+            <Route path="/collection" element={<CollectionPage />} />
+          </Route>
+          <Route path="/signIn" element={<SignInPage />} />
+          <Route path="/signUp" element={<SignUpPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 

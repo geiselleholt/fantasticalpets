@@ -39,55 +39,53 @@ export default function PetPage() {
     }
   };
 
-const handleSaveToCollection = async () => {
-  setIsLoading(true);
+  const handleSaveToCollection = async () => {
+    setIsLoading(true);
 
-  try {
-    let aiPetName = petName;
-    let aiPetDescription = petDescription;
+    try {
+      let aiPetName = petName;
+      let aiPetDescription = petDescription;
 
-    if (!petName || !petDescription) {
-      const aiResponse = await axios.post(`${API_BASE_URL}/pet/aiDetails`, {
-        animal1,
-        animal2,
-      });
+      if (!petName || !petDescription) {
+        const aiResponse = await axios.post(`${API_BASE_URL}/pet/aiDetails`, {
+          animal1,
+          animal2,
+        });
 
-      console.log(aiResponse.data);
-
-      if (!petName) {
-        aiPetName = aiResponse.data.name;
-        setPetName(aiPetName);
+        if (!petName) {
+          aiPetName = aiResponse.data.name;
+          setPetName(aiPetName);
+        }
+        if (!petDescription) {
+          aiPetDescription = aiResponse.data.description;
+          setPetDescription(aiPetDescription);
+        }
       }
-      if (!petDescription) {
-        aiPetDescription = aiResponse.data.description;
-        setPetDescription(aiPetDescription);
-      }
-    }
 
-    await axios.post(
-      `${API_BASE_URL}/pet`,
-      {
-        name: aiPetName,
-        description: aiPetDescription,
-        animal1: animal1,
-        animal2: animal2,
-        imageUrl: petImageUrl,
-      },
-      {
-        headers: {
-          "x-auth-token": cookies.token,
+      await axios.post(
+        `${API_BASE_URL}/pet`,
+        {
+          name: aiPetName,
+          description: aiPetDescription,
+          animal1: animal1,
+          animal2: animal2,
+          imageUrl: petImageUrl,
         },
-      }
-    );
+        {
+          headers: {
+            "x-auth-token": cookies.token,
+          },
+        }
+      );
 
-    nav("/collection");
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  } finally {
-    setIsLoading(false);
-  }
-};
+      nav("/collection");
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     setIsLoading(true);

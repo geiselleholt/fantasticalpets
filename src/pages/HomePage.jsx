@@ -4,7 +4,7 @@ export default function HomePage() {
   const nav = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-300 via-sky-500 to-blue-800 text-white font-inter">
+    <div className=" flex flex-col items-center justify-center p-4  ">
       <div className="text-center mb-12 max-w-6xl w-full">
         <h1
           className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight

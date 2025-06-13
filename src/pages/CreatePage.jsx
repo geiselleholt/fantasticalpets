@@ -46,11 +46,11 @@ export default function CreatePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-300 via-sky-500 to-blue-800 text-white font-inter">
+    <div className=" flex flex-col items-center justify-center p-4  ">
       <div className="text-center mb-12 max-w-6xl w-full">
         <h1
           className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
-                     bg-gradient-to-r from-green-500 via-pink-400 via-yellow-500 to-blue-500 bg-clip-text text-transparent
+                     bg-gradient-to-r from-pink-400 to-green-500 bg-clip-text text-transparent
                      drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)]"
         >
           Create Your Fantastical Pet!

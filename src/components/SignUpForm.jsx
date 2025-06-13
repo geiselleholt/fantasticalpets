@@ -59,7 +59,7 @@ export default function SignUpForm() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-300 via-sky-500 to-blue-800 text-white font-inter">
+    <div className=" flex flex-col items-center justify-center p-4  ">
       <h1
         className="text-5xl md:text-6xl font-extrabold mb-8 leading-tight text-center
                      bg-gradient-to-r from-green-600 via-blue-400 via-green-600 to-blue-500 bg-clip-text text-transparent
