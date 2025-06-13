@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import DisplayCategory from "../components/DisplayCategory";
 import categoriesData from "../data/categoriesData";
@@ -6,13 +6,16 @@ import categoriesData from "../data/categoriesData";
 export default function CreatePage() {
   const nav = useNavigate();
   const [selectedImages, setSelectedImages] = useState([]);
+  const selectionsRef = useRef(null);
 
   const handleImageSelect = (image) => {
     setSelectedImages((prevSelected) => {
-      const isAlreadySelected = prevSelected.some((img) => img.id === image.id);
+      const isAlreadySelected = prevSelected.some(
+        (img) => img && img.id === image.id
+      );
 
       if (isAlreadySelected) {
-        return prevSelected.filter((img) => img.id !== image.id);
+        return prevSelected.filter((img) => img && img.id !== image.id);
       } else {
         if (prevSelected.length < 2) {
           return [...prevSelected, image];
@@ -24,49 +27,94 @@ export default function CreatePage() {
     });
   };
 
+  const handleImageSelectAndScroll = (image) => {
+    handleImageSelect(image);
+    if (selectionsRef.current) {
+      selectionsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
   const handleSubmit = () => {
-    nav("/pet", { state: { hybridAnimals: selectedImages } });
+    if (selectedImages.length === 2) {
+      nav("/pet", { state: { hybridAnimals: selectedImages } });
+    } else {
+      alert("Please select 2 animals");
+    }
   };
 
   return (
-    <div>
-      <div>
-        <h1>Create Station</h1>
-        <p>
-          Select 2 animals from any category below to combine their unique
-          traits and create your own amazing creature!
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-300 via-sky-500 to-blue-800 text-white font-inter">
+      <div className="text-center mb-12 max-w-6xl w-full">
+        <h1
+          className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
+                     bg-gradient-to-r from-green-500 via-pink-400 via-yellow-500 to-blue-500 bg-clip-text text-transparent
+                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)]"
+        >
+          Create Your Fantastical Pet!
+        </h1>
+        <p className="text-2xl md:text-3xl opacity-90 text-purple-700 text-center max-w-2xl mx-auto">
+          Select 2 animals from any category below to create your own amazing
+          creature!
         </p>
+      </div>
 
-        <div>
-          <h2>Your Selections:</h2>
-          <section className="selections">
-            {selectedImages.map((img) => (
-              <div key={img.id}>
-                <img src={img.src} alt={img.alt} width={150} />
-                <div>
-                  <span>{img.alt}</span>
-                </div>
-              </div>
-            ))}
-          </section>
-        </div>
-
-        {selectedImages.length === 2 && (
-          <div>
-            <button onClick={handleSubmit}>See Your Fantastical Pet</button>
-          </div>
-        )}
-
-        <div className="categories">
-          {categoriesData.map((category) => (
-            <DisplayCategory
-              key={category.name}
-              category={category}
-              onImageSelect={handleImageSelect}
-              selectedImages={selectedImages}
-            />
+      <div
+        ref={selectionsRef}
+        className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm max-w-2xl w-full mb-12 border border-blue-400"
+      >
+        <h2
+          className="text-3xl md:text-4xl font-bold mb-6 text-center drop-shadow-md
+                       bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent"
+        >
+          Your Selections
+        </h2>
+        <section className="flex flex-wrap justify-center gap-4 min-h-[150px] items-center">
+          {selectedImages.length === 0 && (
+            <p className="text-black text-lg opacity-80">
+              Select 2 animals to get started!
+            </p>
+          )}
+          {selectedImages.map((img) => (
+            <div
+              key={img.id}
+              className="card compact bg-yellow-100 rounded-xl shadow-lg border border-blue-300 p-4 flex flex-col items-center"
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-md mb-2"
+              />
+              <span className="text-black text-sm font-semibold text-center">
+                {img.alt}
+              </span>
+            </div>
           ))}
+        </section>
+      </div>
+
+      {selectedImages.length === 2 && (
+        <div className="text-center mb-12">
+          <button
+            onClick={handleSubmit}
+            className="btn btn-primary btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
+          >
+            See Your Fantastical Pet
+          </button>
         </div>
+      )}
+
+      <div className="categories flex flex-col gap-8 w-full max-w-5xl">
+        {categoriesData.map((category) => (
+          <DisplayCategory
+            key={category.name}
+            category={category}
+            selectedImages={selectedImages}
+            onImageSelectAndScroll={handleImageSelectAndScroll}
+          />
+        ))}
       </div>
     </div>
   );
