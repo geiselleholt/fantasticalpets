@@ -8,10 +8,20 @@ export default function DisplayPet({
   isLoading,
 }) {
   const [isEditing, setIsEditing] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-  const handleDeleteConfirm = () => {
-    alert("Are you sure you want to delete this pet?");
+
+  const handleDeleteClick = () => {
+    setShowConfirmModal(true);
+  };
+
+  const onConfirmDelete = () => {
     handleDeletePet(pet._id);
+    setShowConfirmModal(false);
+  };
+
+  const onCancelDelete = () => {
+    setShowConfirmModal(false);
   };
 
   if (isEditing) {
@@ -52,13 +62,40 @@ export default function DisplayPet({
         >
           Edit
         </button>
+
         <button
-          onClick={handleDeleteConfirm}
-          disabled={isLoading}
+          onClick={handleDeleteClick}
           className="btn btn-sm btn-error text-white px-4 py-2 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-error active:bg-error-focus"
         >
           Delete
         </button>
+
+        {showConfirmModal && (
+          <dialog id="my_modal_8" className="modal modal-open">
+            <div className="modal-box text-black text-center card bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl backdrop-blur-sm border border-red-400">
+              <h3 className="font-bold text-lg text-red-600 mb-4">
+                Confirm Deletion
+              </h3>
+              <p className="py-4">
+                Are you sure you want to delete "{pet.name || "this pet"}"?
+              </p>
+              <div className="modal-action flex justify-center gap-4">
+                <button
+                  onClick={onConfirmDelete}
+                  className="btn btn-error text-accent"
+                >
+                  Yes, Delete
+                </button>
+                <button onClick={onCancelDelete} className="btn btn-outline">
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <form method="dialog" className="modal-backdrop">
+              <button onClick={onCancelDelete}>close</button>
+            </form>
+          </dialog>
+        )}
       </section>
     </div>
   );

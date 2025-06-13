@@ -51,11 +51,11 @@ export default function CreatePage() {
         <h1
           className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
                      bg-gradient-to-r from-pink-400 to-green-500 bg-clip-text text-transparent
-                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)]"
+                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-gradient-text"
         >
           Create Your Fantastical Pet!
         </h1>
-        <p className="text-2xl text-pink-600 md:text-2xl opacity-90 text-purple-700 text-center max-w-4xl mx-auto animate-spin-slow">
+        <p className="text-2xl text-pink-600 md:text-2xl opacity-90 text-purple-700 text-center max-w-4xl mx-auto">
           Select 2 animals from any category below to create your own amazing
           creature!
         </p>
