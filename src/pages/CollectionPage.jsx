@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
 import axios from "axios";
 import loadingJuggle from "../images/loadingJuggle.gif";
 import DisplayPet from "../components/DisplayPet.jsx";
@@ -24,6 +24,7 @@ export default function CollectionPage() {
         },
       });
       setPets(response.data);
+      console.log(response.data)
     } catch (err) {
       console.error(err);
       alert(err.message);

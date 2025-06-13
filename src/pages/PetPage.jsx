@@ -129,7 +129,7 @@ export default function PetPage() {
             className="w-full max-w-xs md:max-w-sm h-auto object-cover rounded-xl border-4 border-yellow-300 shadow-xl mb-6"
           />
           <div>
-            <p className="text-pink-700 text-center text-md mb-2 max-w-prose mx-auto">
+            <p className="text-pink-700 text-bold text-center text-md mb-2 max-w-prose mx-auto">
               Want a fun surprise? <br /> Let our magical wizard can conjure a
               cute name and silly description for you!
             </p>
