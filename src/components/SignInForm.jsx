@@ -98,7 +98,7 @@ export default function SignInForm() {
             disabled={isLoading}
             className="btn btn-link text-primary p-0 min-h-0 h-auto align-baseline"
           >
-            Answer A Question To Sign In
+            Answer a Question to Sign In
           </button>
         </p>
         <p className="text-sm text-black text-center">
