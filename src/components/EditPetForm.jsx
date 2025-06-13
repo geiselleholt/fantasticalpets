@@ -76,7 +76,7 @@ export default function EditPetForm({
         <button
           onClick={handleCancelEdit}
           disabled={isLoading}
-          className="btn btn-secondary px-6 py-2 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus" /* Consistent button styling */
+          className="btn btn-secondary px-6 py-2 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus"
         >
           Cancel
         </button>

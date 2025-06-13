@@ -61,7 +61,6 @@ export default function AuthProvider({ children }) {
 
   async function getAnswers(username, answer1, answer2) {
     try {
-      console.log(username, answer1, answer2);
       const res = await axios.post(`${baseURL}/answers`, {
         userName: username,
         answer1: answer1,

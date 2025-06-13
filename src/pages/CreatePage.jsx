@@ -51,7 +51,7 @@ export default function CreatePage() {
         <h1
           className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
                      bg-gradient-to-r from-pink-400 to-green-500 bg-clip-text text-transparent
-                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-gradient-text"
+                     drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-pulse-subtle "
         >
           Create Your Fantastical Pet!
         </h1>

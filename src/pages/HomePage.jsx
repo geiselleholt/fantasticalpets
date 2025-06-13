@@ -9,7 +9,7 @@ export default function HomePage() {
         <h1
           className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
                        bg-gradient-to-r from-blue-100 via-yellow-400 via-accent-500 to-pink-500 bg-clip-text text-transparent
-                       drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)]"
+                       drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-gradient-text"
         >
           Welcome to the World of <br /> Fantastical Pets!
         </h1>
