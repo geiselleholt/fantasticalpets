@@ -64,6 +64,14 @@ Create a practical MERN stack application that, solves problem, makes your life 
 - Normalized userName and password not working correctly
 - Input text color not rendering how I want css not rendering how I want
 
+### Coming Soon:
+
+- Games!
+  - guess that pet
+  - matching
+- Deployment
+- 3rd Party API?
+
 ### Wire Frames:
 
 Home Page:
