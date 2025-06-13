@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@keyframes spin-slow {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
