@@ -13,7 +13,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="bg-gradient-to-r from-blue-400 via-sky-500 to-purple-600 p-4 shadow-lg fixed top-0 w-full z-50">
+    <nav className="bg-gradient-to-r from-purple-400 via-sky-500 to-purple-600 p-4 shadow-lg fixed top-0 w-full z-50">
       <ul className="flex justify-end items-center gap-6">
         {cookies.token ? (
           <>

@@ -55,7 +55,7 @@ export default function CreatePage() {
         >
           Create Your Fantastical Pet!
         </h1>
-        <p className="text-2xl md:text-3xl opacity-90 text-purple-700 text-center max-w-2xl mx-auto">
+        <p className="text-2xl text-pink-600 md:text-2xl opacity-90 text-purple-700 text-center max-w-4xl mx-auto animate-spin-slow">
           Select 2 animals from any category below to create your own amazing
           creature!
         </p>
@@ -73,7 +73,7 @@ export default function CreatePage() {
         </h2>
         <section className="flex flex-wrap justify-center gap-4 min-h-[150px] items-center">
           {selectedImages.length === 0 && (
-            <p className="text-black text-lg opacity-80">
+            <p className="text-pink-700 text-lg opacity-80">
               Select 2 animals to get started!
             </p>
           )}

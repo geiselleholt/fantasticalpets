@@ -23,39 +23,64 @@ export default function EditPetForm({
   };
 
   return (
-    <div>
-      <h3>Edit Pet</h3>
+    <div className="card bg-white bg-opacity-10 p-6 rounded-2xl shadow-2xl backdrop-blur-sm border border-blue-400 flex flex-col items-center text-center w-full max-w-sm mx-auto h-full">
+      <h3 className="text-xl md:text-2xl font-bold text-white bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
+        Edit Pet
+      </h3>
       {currentImageUrl && (
-        <img src={currentImageUrl} alt={currentName || "Pet Image"} width={150}/>
-      )}
-      <div>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          disabled={isLoading}
+        <img
+          src={currentImageUrl}
+          alt={currentName || "Pet Image"}
+          className="w-32 h-32 object-cover rounded-md mb-4 border-2 border-yellow-300 shadow-lg"
         />
+      )}
+      <div className="flex flex-col gap-4 w-full">
+        <label className="label text-black text-left w-full">
+          <span className="label-text text-black">Name:</span>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            disabled={isLoading}
+            className="input input-bordered input-primary w-full bg-blue-50 text-black"
+          />
+        </label>
+        <label className="label text-black text-left w-full">
+          <span className="label-text text-black">Description:</span>{" "}
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows="3"
+            disabled={isLoading}
+            className="textarea textarea-bordered textarea-primary w-full bg-blue-50 text-black"
+          ></textarea>
+        </label>
       </div>
-      <div>
-        <label>Description:</label>
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          rows="3"
+      <div className="flex gap-4 mt-6">
+        <button
+          onClick={onSave}
           disabled={isLoading}
-        ></textarea>
+          className="btn btn-primary px-6 py-2 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
+        >
+          {isLoading ? (
+            <img
+              src={loadingJuggle}
+              alt="cartoon of loading juggler"
+              width={40}
+              className="mx-auto"
+            />
+          ) : (
+            "Save Changes"
+          )}
+        </button>
+        <button
+          onClick={handleCancelEdit}
+          disabled={isLoading}
+          className="btn btn-secondary px-6 py-2 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus" /* Consistent button styling */
+        >
+          Cancel
+        </button>
       </div>
-      <button onClick={onSave} disabled={isLoading}>
-        {isLoading ? (
-          <img src={loadingJuggle} alt="cartoon of loading juggler" width={100} />
-        ) : (
-          "Save Changes"
-        )}
-      </button>
-      <button onClick={handleCancelEdit} disabled={isLoading}>
-        Cancel
-      </button>
     </div>
   );
 }

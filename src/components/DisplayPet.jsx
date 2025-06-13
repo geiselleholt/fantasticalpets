@@ -13,6 +13,7 @@ export default function DisplayPet({
     alert("Are you sure you want to delete this pet?");
     handleDeletePet(pet._id);
   };
+
   if (isEditing) {
     return (
       <EditPetForm
@@ -28,21 +29,34 @@ export default function DisplayPet({
   }
 
   return (
-    <div className="petCard">
-      <section>
+    <div className="bg-white bg-opacity-20 p-4 rounded-xl shadow-lg border border-blue-300 flex flex-col items-center text-center h-full">
+      <section className="flex flex-col items-center mb-6">
         <img
           src={pet.image.imageUrl}
           alt={pet.name || "Hybrid Pet"}
-          width={100}
+          className="w-40 h-40 object-cover rounded-md mb-4 border-4 border-yellow-300 shadow-md"
         />
-        <h3>{pet.name || ""}</h3>
-        <p>{pet.description || ""}</p>
+        <h3 className="text-xl md:text-2xl font-bold text-accent-300 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-2">
+          {pet.name || ""}
+        </h3>
+        <p className="text-sm text-blue-800 font-bold mb-4 flex-grow">
+          {pet.description || ""}
+        </p>
       </section>
-      <section>
-        <button onClick={() => setIsEditing(true)} disabled={isLoading}>
+
+      <section className="flex gap-4 mt-auto">
+        <button
+          onClick={() => setIsEditing(true)}
+          disabled={isLoading}
+          className="btn btn-sm btn-info text-white px-4 py-2 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-info active:bg-info-focus"
+        >
           Edit
         </button>
-        <button onClick={handleDeleteConfirm} disabled={isLoading}>
+        <button
+          onClick={handleDeleteConfirm}
+          disabled={isLoading}
+          className="btn btn-sm btn-error text-white px-4 py-2 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-error active:bg-error-focus"
+        >
           Delete
         </button>
       </section>

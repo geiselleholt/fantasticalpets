@@ -180,7 +180,7 @@ const categoriesData = [
     ],
   },
   {
-    name: "Magestics",
+    name: "Mythical Beasts",
     images: [
       {
         id: "m1",
@@ -210,7 +210,7 @@ const categoriesData = [
     ],
   },
   {
-    name: "Imaginary Mixes",
+    name: "Costumes",
     images: [
       {
         id: "i1",

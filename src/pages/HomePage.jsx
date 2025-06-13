@@ -27,7 +27,7 @@ export default function HomePage() {
         >
           Unleash Your Creativity
         </h2>
-        <p className="text-lg md:text-xl mb-8 text-center text-accent">
+        <p className="text-lg md:text-xl mb-8 text-center text-green-700">
           Choose 2 animals and combine them into one adorable creature like
           this:
         </p>
@@ -55,7 +55,7 @@ export default function HomePage() {
               className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-xl border-4 border-purple-400 shadow-xl"
             />
             <p className="mt-2 text-sm md:text-base font-semibold text-black">
-              Bear + Dragon = Beary Hot Breathe
+              Bear + Dragon = Beary Firey
             </p>
           </div>
 
@@ -120,7 +120,7 @@ export default function HomePage() {
           >
             Build Your Dream Collection
           </h2>
-          <p className="text-lg md:text-xl opacity-90 max-w-md mx-auto text-black">
+          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black">
             Save all your creature creations in your own personal fantastical
             pet family!
           </p>
@@ -133,11 +133,11 @@ export default function HomePage() {
           >
             Make Your Pet Truly Fantastic
           </h2>
-          <p className="text-lg md:text-xl opacity-90 max-w-md mx-auto text-black mt-4 mb-2">
+          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mt-4 mb-2">
             What's its name? What amazing adventures does it have? What's its
             favorite snack? You Decide!
           </p>
-          <p className="text-lg md:text-xl opacity-90 max-w-md mx-auto text-black">
+          <p className="text-lg md:text-xl text-blue-600 opacity-90 max-w-md mx-auto text-black">
             If you like surprises, our magical wizard can invent a cute name and
             silly description for you!
           </p>
@@ -145,7 +145,7 @@ export default function HomePage() {
       </div>
       <h2
         className="text-3xl md:text-4xl font-bold opacity-90 text-center
-                         text-yellow-500 bg-clip-text text-transparent"
+                         text-yellow-400 bg-clip-text text-transparent"
       >
         Ready to get started?
       </h2>
