@@ -13,9 +13,6 @@ export default function HomePage() {
         >
           Welcome to the World of <br /> Fantastical Pets!
         </h1>
-        {/* <p className="text-3xl md:text-2xl opacity-90 text-purple-700">
-          Where your imagination creates the most amazing creatures...
-        </p> */}
         <p className="text-3xl md:text-3xl opacity-90 text-purple-700 animate-spin-slow">
           Where your imagination creates the most amazing creatures...
         </p>

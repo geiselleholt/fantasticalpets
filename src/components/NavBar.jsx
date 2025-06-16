@@ -40,6 +40,17 @@ export default function NavBar() {
             </li>
 
             <li>
+              {location.pathname !== "/guess" && (
+                <Link
+                  to="/guess"
+                  className="text-white text-lg font-bold px-4 py-2 rounded-md cursor-pointer hover:bg-white hover:bg-opacity-20 transition-colors"
+                >
+                  Guessing Game
+                </Link>
+              )}
+            </li>
+
+            <li>
               <span
                 onClick={handleSignOut}
                 className="text-white text-lg font-bold px-4 py-2 rounded-md cursor-pointer hover:bg-white hover:bg-opacity-20 transition-colors"

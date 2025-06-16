@@ -114,8 +114,8 @@ const categoriesData = [
       },
       {
         id: "s5",
-        src: "https://images.deepai.org/art-image/3f5c732a085b43819f994dde53b9f6ce/cartoon-image-of-a-cute-smiling-starfish.jpg",
-        alt: "Star Fish",
+        src: "https://images.deepai.org/art-image/f641506707684c09af1d8be7bfe6bbb4/cartoon-image-of-a-cute-sea-lion-af3595.jpg",
+        alt: "Sea Lion",
       },
     ],
   },

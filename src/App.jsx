@@ -9,6 +9,8 @@ import SignUpPage from "./pages/SignUpPage";
 import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import GuessingGamePage from "./pages/GuessingGamePage";
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/create" element={<CreatePage />} />
             <Route path="/collection" element={<CollectionPage />} />
           </Route>
+          <Route path="/guess" element={<GuessingGamePage />} />
           <Route path="/signIn" element={<SignInPage />} />
           <Route path="/signUp" element={<SignUpPage />} />
           <Route path="*" element={<NotFound />} />
