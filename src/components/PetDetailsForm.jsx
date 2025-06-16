@@ -17,7 +17,6 @@ export default function PetDetailsForm({
   const API_BASE_URL = "http://localhost:3000/api";
 
   const generateAIName = async () => {
-    setIsLoading(true);
     try {
       const aiResponse = await axios.post(`${API_BASE_URL}/pet/aiDetails`, {
         animal1,
@@ -27,13 +26,10 @@ export default function PetDetailsForm({
     } catch (err) {
       console.error(err);
       alert(err.message);
-    } finally {
-      setIsLoading(false);
     }
   };
 
   const generateAIDescription = async () => {
-    setIsLoading(true);
     try {
       const aiResponse = await axios.post(`${API_BASE_URL}/pet/aiDetails`, {
         animal1,
@@ -43,8 +39,6 @@ export default function PetDetailsForm({
     } catch (err) {
       console.error(err);
       alert(err.message);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -108,7 +102,7 @@ export default function PetDetailsForm({
           placeholder="Pet Name (optional)"
           value={petName}
           onChange={(e) => setPetName(e.target.value)}
-          className="input input-bordered input-primary w-full bg-blue-50 text-black placeholder-gray-500"
+          className="input input-bordered input-primary w-full bg-blue-50 text-black font-bold placeholder-gray-500"
         />
         <div className="flex justify-center w-full">
           <button
@@ -133,7 +127,7 @@ export default function PetDetailsForm({
           value={petDescription}
           onChange={(e) => setPetDescription(e.target.value)}
           rows="3"
-          className="textarea textarea-bordered textarea-primary w-full bg-blue-50 text-black placeholder-gray-500"
+          className="textarea textarea-bordered textarea-primary w-full bg-blue-50 text-black font-bold placeholder-gray-500"
         ></textarea>
         <div className="flex justify-center w-full">
           <button

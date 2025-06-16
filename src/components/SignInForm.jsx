@@ -90,11 +90,13 @@ export default function SignInForm() {
             type="submit"
             disabled={isLoading}
             className="btn btn-primary w-full text-lg py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-          ></button>
+          >
+            Sign In
+          </button>
         </form>
 
         <p className="text-sm text-black mt-6 text-center">
-          Forgot password?{" "}
+          Forgot password?
           <button
             onClick={() => setForgotPassword(true)}
             disabled={isLoading}

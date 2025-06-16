@@ -158,7 +158,7 @@ export default function SignUpForm() {
               }
               value={formData.securityQuestion2.question}
               aria-label="Security Question 2"
-              disabled={loading}
+              disabled={isLoading}
               className="select select-bordered select-primary w-full bg-blue-50 text-black"
             >
               <option value="">Select 2nd Question</option>

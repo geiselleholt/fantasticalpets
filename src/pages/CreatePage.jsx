@@ -102,7 +102,7 @@ export default function CreatePage() {
         </div>
       )}
 
-      <div className="categories flex flex-col gap-8 w-full max-w-5xl">
+      <div className="categories grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-2 gap-8 w-full max-w-screen-2xl">
         {categoriesData.map((category) => (
           <DisplayCategory
             key={category.name}

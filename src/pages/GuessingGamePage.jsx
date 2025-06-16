@@ -94,12 +94,11 @@ export default function GuessingGamePage() {
         `❌ Incorrect. This was a ${randomPet.animal1} and ${randomPet.animal2} hybrid.`
       );
     }
-    setShowResult(true); // Show the result message and play again/collection buttons
+    setShowResult(true);
   };
 
-  // --- Navigation Buttons ---
   const handlePlayAgain = () => {
-    fetchRandomPet(); // Reset game
+    fetchRandomPet();
   };
 
   const handleGoToCollection = () => {
@@ -127,19 +126,14 @@ export default function GuessingGamePage() {
       </h1>
 
       {randomPet && (
-        <div className="flex flex-col items-center w-full max-w-6xl gap-8">
-          {" "}
-          {/* Main container for all game sections */}
-          {/* --- 1. Hybrid Image Display Section --- */}
-          <div className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full border border-blue-400 flex flex-col items-center">
-
+        <div className="flex flex-col items-center w-full max-w-screen-2xl gap-8">
+          <div className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full max-w-3xl border border-green-400 flex flex-col items-center">
             <img
               src={randomPet.imageUrl}
               alt="Mystery Hybrid Pet"
-              className="w-full max-w-xs md:max-w-sm h-auto object-cover rounded-xl border-4 border-yellow-300 shadow-xl"
+              className="w-full max-w-[250px] md:max-w-[300px] h-auto object-cover rounded-xl border-4 border-yellow-300 shadow-xl"
             />
           </div>
-          {/* --- 2. Feedback Message Section --- */}
           {feedbackMessage && (
             <div className="w-full max-w-2xl text-center">
               <p
@@ -155,16 +149,15 @@ export default function GuessingGamePage() {
               </p>
             </div>
           )}
-          {/* --- 3. User's Current Guesses Display Section --- */}
-          {!showResult && ( // Only show if result is not yet shown
+          {!showResult && (
             <div
               ref={selectionsRef}
-              className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full max-w-2xl border border-pink-400 flex flex-col items-center gap-8"
+              className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full max-w-2xl border border-pink-400 flex flex-col items-center gap-2"
             >
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text text-transparent">
                 Your Current Guess:
               </h3>
-              <div className="flex flex-wrap justify-center gap-20 min-h-[100px] items-center">
+              <div className="flex flex-wrap justify-center gap-8 min-h-[100px] items-center">
                 {selectedGuesses.length === 0 && (
                   <p className="text-pink-700 font-bold text-lg opacity-80">
                     Select 2 animals below to make your guess!
@@ -199,23 +192,21 @@ export default function GuessingGamePage() {
               </button>
             </div>
           )}
-          {/* --- 4. Selection Options & Submit Section --- */}
-          {!showResult && ( // Only show if result is not yet shown
+          {!showResult && (
             <div className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full border border-green-400 flex flex-col items-center">
-              <div className="categories flex flex-col gap-8 w-full max-w-2xl">
+              <div className="categories grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-2 gap-8 w-full max-w-screen-2xl">
                 {categoriesData.map((category) => (
                   <DisplayCategory
                     key={category.name}
                     category={category}
-                    selectedImages={selectedGuesses} // Pass selectedGuesses to highlight
-                    onImageSelectAndScroll={handleGuessSelect} // Use guess selection handler
+                    selectedImages={selectedGuesses}
+                    onImageSelectAndScroll={handleGuessSelect}
                   />
                 ))}
               </div>
             </div>
           )}
-          {/* --- 5. Play Again / Go to Collection Options Section --- */}
-          {showResult && ( // Only show after result is shown
+          {showResult && (
             <div className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full max-w-2xl border border-yellow-400 flex flex-col items-center text-center">
               <div className="flex flex-col md:flex-row justify-center gap-4 w-full">
                 <button
