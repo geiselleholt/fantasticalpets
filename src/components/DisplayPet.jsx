@@ -38,6 +38,20 @@ export default function DisplayPet({
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-80px)]">
+        <p className="text-xl mb-4 text-white">Loading...</p>
+        <img
+          src={loadingJuggle}
+          alt="cartoon of loading juggler"
+          width={100}
+          className="mx-auto"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white bg-opacity-20 p-4 rounded-xl shadow-lg border border-blue-300 flex flex-col items-center text-center h-full">
       <section className="flex flex-col items-center mb-6">

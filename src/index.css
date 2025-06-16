@@ -43,5 +43,5 @@
 
 .animate-gradient-text {
   background-size: 200% auto; /* Make the gradient wider than the text */
-  animation: gradient-move 8s ease-in-out infinite; /* Adjust speed as needed */
+  animation: gradient-move 5s ease-in-out infinite; /* Adjust speed as needed */
 }

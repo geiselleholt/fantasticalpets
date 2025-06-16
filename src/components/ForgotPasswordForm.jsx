@@ -8,7 +8,7 @@ export default function ForgotPasswordForm({}) {
   const nav = useNavigate();
 
   const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [showQuestions, setShowQuestions] = useState(false);
   const [Question1, setQuestion1] = useState("");
@@ -30,7 +30,7 @@ export default function ForgotPasswordForm({}) {
 
   const handleUsernameSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
 
     try {
       const data = await getQuestions(username);
@@ -44,13 +44,13 @@ export default function ForgotPasswordForm({}) {
       console.error(err);
       return;
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
   const handleAnswerSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
 
     try {
       await getAnswers(username, answer1, answer2);
@@ -61,9 +61,23 @@ export default function ForgotPasswordForm({}) {
       console.error(err);
       return;
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-80px)]">
+        <p className="text-xl mb-4 text-white">Loading...</p>
+        <img
+          src={loadingJuggle}
+          alt="cartoon of loading juggler"
+          width={100}
+          className="mx-auto"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -86,31 +100,19 @@ export default function ForgotPasswordForm({}) {
                 placeholder="Enter Your Username"
                 value={username}
                 onChange={handleUsernameChange}
-                disabled={loading}
+                disabled={isLoading}
                 className="input input-bordered input-primary w-full bg-blue-50 text-black"
               />
               <button
                 type="submit"
-                disabled={loading}
+                disabled={isLoading}
                 className="btn btn-primary w-full text-lg py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-              >
-                {loading ? (
-                  <div>
-                    <img
-                      src={loadingJuggle}
-                      alt="cartoon of loading juggler"
-                      width={100}
-                    />
-                  </div>
-                ) : (
-                  "Submit"
-                )}
-              </button>
+              ></button>
             </form>
             <p className="text-sm text-black mt-6 text-center">
               <button
                 onClick={() => nav("/signUp")}
-                disabled={loading}
+                disabled={isLoading}
                 className="btn btn-link text-secondary p-0 min-h-0 h-auto align-baseline"
               >
                 Sign Up
@@ -130,7 +132,7 @@ export default function ForgotPasswordForm({}) {
                   placeholder="Enter Your Answer for Question 1"
                   value={answer1}
                   onChange={handleAnswer1Change}
-                  disabled={loading}
+                  disabled={isLoading}
                   className="input input-bordered input-primary w-full bg-blue-50 text-black"
                 />
               </div>
@@ -142,33 +144,21 @@ export default function ForgotPasswordForm({}) {
                   placeholder="Enter Your Answer for Question 2"
                   value={answer2}
                   onChange={handleAnswer2Change}
-                  disabled={loading}
+                  disabled={isLoading}
                   className="input input-bordered input-primary w-full bg-blue-50 text-black"
                 />
               </div>
               <button
                 type="submit"
-                disabled={loading}
+                disabled={isLoading}
                 className="btn btn-primary w-full text-lg py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-              >
-                {loading ? (
-                  <div>
-                    <img
-                      src={loadingJuggle}
-                      alt="cartoon of loading juggler"
-                      width={100}
-                    />
-                  </div>
-                ) : (
-                  "Submit"
-                )}
-              </button>
+              ></button>
             </form>
             <p className="text-sm text-black mt-6 text-center">
               Can't remember your answers?
               <button
                 onClick={() => nav("/signUp")}
-                disabled={loading}
+                disabled={isLoading}
                 className="btn btn-link text-secondary p-0 min-h-0 h-auto align-baseline"
               >
                 Sign Up

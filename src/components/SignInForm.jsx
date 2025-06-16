@@ -35,6 +35,20 @@ export default function SignInForm() {
     }
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-80px)]">
+        <p className="text-xl mb-4 text-white">Loading...</p>
+        <img
+          src={loadingJuggle}
+          alt="cartoon of loading juggler"
+          width={100}
+          className="mx-auto"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className=" flex flex-col items-center justify-center p-4  ">
       <h1
@@ -76,19 +90,7 @@ export default function SignInForm() {
             type="submit"
             disabled={isLoading}
             className="btn btn-primary w-full text-lg py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-          >
-            {isLoading ? (
-              <div>
-                <img
-                  src={loadingJuggle}
-                  alt="cartoon of loading juggler"
-                  width={100}
-                />
-              </div>
-            ) : (
-              "Sign In"
-            )}
-          </button>
+          ></button>
         </form>
 
         <p className="text-sm text-black mt-6 text-center">

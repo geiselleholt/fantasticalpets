@@ -22,6 +22,20 @@ export default function EditPetForm({
     handleSaveChanges(petId, name, description);
   };
 
+    if (isLoading) {
+      return (
+        <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-80px)]">
+          <p className="text-xl mb-4 text-white">Loading...</p>
+          <img
+            src={loadingJuggle}
+            alt="cartoon of loading juggler"
+            width={100}
+            className="mx-auto"
+          />
+        </div>
+      );
+    }
+
   return (
     <div className="card bg-white bg-opacity-10 p-6 rounded-2xl shadow-2xl backdrop-blur-sm border border-blue-400 flex flex-col items-center text-center w-full max-w-sm mx-auto h-full">
       <h3 className="text-xl md:text-2xl font-bold text-white bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent mb-4">
@@ -61,17 +75,7 @@ export default function EditPetForm({
           onClick={onSave}
           disabled={isLoading}
           className="btn btn-primary px-6 py-2 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-        >
-          {isLoading ? (
-            <img
-              src={loadingJuggle}
-              alt="cartoon of loading juggler"
-              width={40}
-              className="mx-auto"
-            />
-          ) : (
-            "Save Changes"
-          )}
+        >Save
         </button>
         <button
           onClick={handleCancelEdit}

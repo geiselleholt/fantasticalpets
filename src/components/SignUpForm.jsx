@@ -6,7 +6,7 @@ import loadingJuggle from "../images/loadingJuggle.gif";
 export default function SignUpForm() {
   const { signUp } = useAuth();
   const nav = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const securityQuestions = [
     "What is your favorite color?",
@@ -44,7 +44,7 @@ export default function SignUpForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
 
     try {
       await signUp(formData);
@@ -54,8 +54,22 @@ export default function SignUpForm() {
       console.error(err);
       return;
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-80px)]">
+        <p className="text-xl mb-4 text-white">Loading...</p>
+        <img
+          src={loadingJuggle}
+          alt="cartoon of loading juggler"
+          width={100}
+          className="mx-auto"
+        />
+      </div>
+    );
   }
 
   return (
@@ -83,7 +97,7 @@ export default function SignUpForm() {
             type="text"
             name="userName"
             placeholder="Enter Username"
-            disabled={loading}
+            disabled={isLoading}
             className="input input-bordered input-primary w-full bg-blue-50 text-black"
           />
           <input
@@ -92,7 +106,7 @@ export default function SignUpForm() {
             type="text"
             name="password"
             placeholder="Enter Password"
-            disabled={loading}
+            disabled={isLoading}
             className="input input-bordered input-primary w-full bg-blue-50 text-black"
           />
 
@@ -106,7 +120,7 @@ export default function SignUpForm() {
                 )
               }
               value={formData.securityQuestion1.question}
-              disabled={loading}
+              disabled={isLoading}
               className="select select-bordered select-primary w-full bg-blue-50 text-black"
             >
               <option value="">Select 1st Question</option>
@@ -128,7 +142,7 @@ export default function SignUpForm() {
               type="text"
               placeholder="Answer for 1st Question"
               aria-label="Answer for Question 1"
-              disabled={loading}
+              disabled={isLoading}
               className="input input-bordered input-primary w-full bg-blue-50 text-black"
             />
           </div>
@@ -170,29 +184,16 @@ export default function SignUpForm() {
               type="text"
               placeholder="Answer for 2nd Question"
               aria-label="Answer for Question 2"
-              disabled={loading}
+              disabled={isLoading}
               className="input input-bordered input-primary w-full bg-blue-50 text-black"
             />
           </div>
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={isLoading}
             className="btn btn-primary w-full text-lg py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-          >
-            {loading ? (
-              <div>
-                <img
-                  src={loadingJuggle}
-                  alt="cartoon of loading juggler"
-                  width={100}
-                  className="mx-auto"
-                />
-              </div>
-            ) : (
-              "Sign Up"
-            )}
-          </button>
+          ></button>
         </form>
 
         <p className="text-sm text-black mt-6 text-center">

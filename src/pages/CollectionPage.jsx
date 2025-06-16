@@ -24,7 +24,6 @@ export default function CollectionPage() {
         },
       });
       setPets(response.data);
-      console.log(response.data)
     } catch (err) {
       console.error(err);
       alert(err.message);
