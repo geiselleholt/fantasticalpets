@@ -112,13 +112,17 @@ export default function HomePage() {
         <div className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full md:flex-1 mb-8 md:mb-0">
           <h2
             className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-md text-center
-                         bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent"
+                         bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent"
           >
-            Build Your Dream Collection
+            Sign In to Build Your <br /> Dream Collection
           </h2>
-          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black">
-            Save all your creature creations in your own personal fantastical
-            pet family!
+          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mb-4">
+            See a random Fantastical Pet and guess which 2 animals make it
+            fantastic!
+          </p>
+          <p className="text-lg md:text-xl text-blue-600 opacity-90 max-w-md mx-auto text-black">
+            See how many you can guess in 2 minutes! Keep playing to beat your
+            high score!
           </p>
         </div>
 
@@ -129,7 +133,23 @@ export default function HomePage() {
           >
             Make Your Pet Truly Fantastic
           </h2>
-          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mt-4 mb-2">
+          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mt-4 mb-4">
+            What's its name? What amazing adventures does it have? What's its
+            favorite snack? You Decide!
+          </p>
+          <p className="text-lg md:text-xl text-blue-600 opacity-90 max-w-md mx-auto text-black">
+            If you like surprises, our magical wizard can invent a cute name and
+            silly description for you!
+          </p>
+        </div>
+        <div className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm w-full md:flex-1">
+          <h2
+            className="text-3xl md:text-4xl font-bold opacity-90 text-center
+                         bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent"
+          >
+            Play the Guessing Game
+          </h2>
+          <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mt-4 mb-4">
             What's its name? What amazing adventures does it have? What's its
             favorite snack? You Decide!
           </p>
@@ -141,11 +161,10 @@ export default function HomePage() {
       </div>
       <h2
         className="text-3xl md:text-4xl font-bold opacity-90 text-center
-                         text-yellow-400 bg-clip-text text-transparent"
+                         text-yellow-400 bg-clip-text text-transparent mb-8"
       >
         Ready to get started?
       </h2>
-      <p>~~~~~~~~~~</p>
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={() => nav("/signUp")}
@@ -159,7 +178,7 @@ export default function HomePage() {
         >
           Sign In
         </button>
-                <button
+        <button
           onClick={() => nav("/guess")}
           className="btn btn-info btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus"
         >

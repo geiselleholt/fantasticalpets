@@ -6,10 +6,11 @@ export default function DisplayPet({
   handleSaveChanges,
   handleDeletePet,
   isLoading,
+  onFavoriteToggle,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-
+  const isFavorite = pet.isFavorite || false;
 
   const handleDeleteClick = () => {
     setShowConfirmModal(true);
@@ -67,8 +68,14 @@ export default function DisplayPet({
           {pet.description || ""}
         </p>
       </section>
-
-      <section className="flex gap-4 mt-auto">
+      <section className="flex gap-8 mt-auto">
+        <span
+          onClick={() => onFavoriteToggle(pet.id, isFavorite)}
+          className="hover:bg-opacity-50 text-xl"
+          aria-label={isFavorite ? "Unfavorite pet" : "Favorite pet"}
+        >
+          {isFavorite ? "❤️" : "🩶"}
+        </span>
         <button
           onClick={() => setIsEditing(true)}
           disabled={isLoading}

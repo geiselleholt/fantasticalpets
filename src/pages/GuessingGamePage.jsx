@@ -46,7 +46,6 @@ export default function GuessingGamePage() {
         headers,
       });
       setRandomPet(response.data);
-      console.log("Random pet fetched:", response.data);
     } catch (err) {
       console.error("Error fetching random pet:", err);
       let msg = "Error loading game. Please try again later.";
@@ -248,7 +247,7 @@ export default function GuessingGamePage() {
           <div className="flex flex-col items-center text-center card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm max-w-xl w-full border border-blue-400">
             <button
               onClick={startGame}
-              className="btn btn-primary px-8 py-4 text-xl rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105"
+              className="btn btn-secondary px-8 py-4 text-xl rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105"
             >
               Start Game!
             </button>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import axios from "axios";
@@ -23,7 +23,19 @@ export default function CollectionPage() {
           "x-auth-token": cookies.token,
         },
       });
-      setPets(response.data);
+
+      const petsData = response.data.map((pet) => ({
+        ...pet,
+        imageUrl: pet.image?.imageUrl,
+        id: pet._id,
+      }));
+      const sortedPets = petsData.sort((a, b) => {
+        if (a.isFavorite && !b.isFavorite) return -1;
+        if (!a.isFavorite && b.isFavorite) return 1;
+        return 0;
+      });
+
+      setPets(sortedPets);
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -35,6 +47,26 @@ export default function CollectionPage() {
   useEffect(() => {
     getPets();
   }, []);
+
+    const handleFavoriteToggle = useCallback(
+      async (petId, currentFavoriteStatus) => {
+        try {
+          await axios.put(
+            `${API_BASE_URL}/pet/${petId}`,
+            { isFavorite: !currentFavoriteStatus },
+            {
+              headers: {
+                "x-auth-token": cookies.token,
+              },
+            }
+          );
+  
+          getPets();
+        } catch (err) {
+          console.error("Error updating favorite status: ", err);
+        }
+      }
+    );
 
   const handleSaveChanges = async (petId, newName, newDescription) => {
     setIsLoading(true);
@@ -133,6 +165,7 @@ export default function CollectionPage() {
                   handleSaveChanges={handleSaveChanges}
                   handleDeletePet={handleDeletePet}
                   isLoading={isLoading}
+                  onFavoriteToggle={handleFavoriteToggle}
                 />
               </div>
             ))}
