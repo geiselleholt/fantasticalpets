@@ -1,12 +1,19 @@
 import notFoundCatAlien from "../images/notFoundCatAlien.gif";
+import { useNavigate } from "react-router-dom";
 
 export default function NotFound() {
+  const nav = useNavigate();
+
   return (
     <>
       <div className=" flex flex-col items-center justify-center p-4 min-h-[calc(100vh-80px)]">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
+        <h1
+          className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
                        bg-gradient-to-r from-blue-100 via-yellow-400 via-accent-500 to-pink-500 bg-clip-text text-transparent
-                       drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-gradient-text">🚫 404 Not Found</h1>
+                       drop-shadow-[0_0_3px_rgb(0,0,0)] md:drop-shadow-[0_0_4px_rgb(0,0,0)] animate-gradient-text"
+        >
+          🚫 404 Not Found
+        </h1>
         <img src={notFoundCatAlien} alt="Funny not found gif of cat alien" />
         <button
           onClick={() => {
