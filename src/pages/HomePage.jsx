@@ -24,9 +24,8 @@ export default function HomePage() {
         >
           Unleash Your Creativity
         </h2>
-        <p className="text-lg md:text-xl mb-8 text-center text-green-700">
-          Choose 2 animals and combine them into one adorable creature like
-          this:
+        <p className="text-lg md:text-xl font-bold mb-8 text-center text-green-700">
+          Choose 2 animals and combine them into one adorable creature:
         </p>
 
         <section className="flex flex-wrap justify-center gap-8 mb-8 ">
@@ -159,6 +158,12 @@ export default function HomePage() {
           className="btn btn-secondary btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus"
         >
           Sign In
+        </button>
+                <button
+          onClick={() => nav("/guess")}
+          className="btn btn-info btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus"
+        >
+          Guessing Game
         </button>
       </div>
     </div>

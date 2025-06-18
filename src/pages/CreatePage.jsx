@@ -46,7 +46,7 @@ export default function CreatePage() {
   };
 
   return (
-    <div className=" flex flex-col items-center justify-center p-4  ">
+    <div className=" flex flex-col items-center justify-center p-4 ">
       <div className="text-center mb-12 max-w-6xl w-full">
         <h1
           className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight
@@ -61,16 +61,13 @@ export default function CreatePage() {
         ref={selectionsRef}
         className="card bg-white bg-opacity-10 p-6 md:p-10 rounded-2xl shadow-2xl backdrop-blur-sm max-w-2xl w-full mb-12 border border-blue-400"
       >
-        <h2
-          className="text-3xl md:text-4xl font-bold mb-6 text-center drop-shadow-md
-                       bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent"
-        >
-          Your Selections
-        </h2>
         <section className="flex flex-wrap justify-center gap-4 min-h-[150px] items-center">
           {selectedImages.length === 0 && (
-            <p className="text-pink-700 font-bold text-lg opacity-80">
-              Select 2 animals to create your own amazing creature!
+            <p
+              className="text-xl md:text-2xl font-bold mb-6 text-center drop-shadow-md
+                       bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+            >
+              Select 2 animals to create your own <br /> amazing creature!
             </p>
           )}
           {selectedImages.map((img) => (
