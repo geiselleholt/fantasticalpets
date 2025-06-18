@@ -117,12 +117,11 @@ export default function HomePage() {
             Sign In to Build Your <br /> Dream Collection
           </h2>
           <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mb-4">
-            See a random Fantastical Pet and guess which 2 animals make it
-            fantastic!
+            Save all your creature creations in your own personal Fantastical
+            Pet family!
           </p>
           <p className="text-lg md:text-xl text-blue-600 opacity-90 max-w-md mx-auto text-black">
-            See how many you can guess in 2 minutes! Keep playing to beat your
-            high score!
+            Choose your favorites and put them on the top of your collection!
           </p>
         </div>
 
@@ -150,12 +149,12 @@ export default function HomePage() {
             Play the Guessing Game
           </h2>
           <p className="text-lg md:text-xl text-purple-700 opacity-90 max-w-md mx-auto text-black mt-4 mb-4">
-            What's its name? What amazing adventures does it have? What's its
-            favorite snack? You Decide!
+            See a random Fantastical Pet and guess which 2 animals make it
+            fantastic!
           </p>
           <p className="text-lg md:text-xl text-blue-600 opacity-90 max-w-md mx-auto text-black">
-            If you like surprises, our magical wizard can invent a cute name and
-            silly description for you!
+            See how many you can guess in 2 minutes! Keep playing to beat your
+            high score!
           </p>
         </div>
       </div>
