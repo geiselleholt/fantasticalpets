@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 import NavBar from "./components/NavBar";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import GuessingGamePage from "./pages/GuessingGamePage";
-
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }
