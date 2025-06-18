@@ -11,7 +11,7 @@ const FEEDBACK_DISPLAY_DURATION = 1500; // 1.5 seconds
 export default function GuessingGamePage() {
   const nav = useNavigate();
   const { cookies } = useAuth();
-  const API_BASE_URL = "http://localhost:3000/api";
+  const API_BASE_URL = "https://fantasicalpetsbackend.onrender.com/api";
 
   const [randomPet, setRandomPet] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

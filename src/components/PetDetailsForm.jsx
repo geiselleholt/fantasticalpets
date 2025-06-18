@@ -14,7 +14,7 @@ export default function PetDetailsForm({
   const [petDescription, setPetDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const API_BASE_URL = "http://localhost:3000/api";
+  const API_BASE_URL = "https://fantasicalpetsbackend.onrender.com/api";
 
   const generateAIName = async () => {
     try {

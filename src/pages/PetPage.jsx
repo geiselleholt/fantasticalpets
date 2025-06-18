@@ -22,11 +22,12 @@ export default function PetPage() {
   const getHybridImage = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post(`http://localhost:3000/api/image`, {
+      const response = await axios.post(`https://fantasicalpetsbackend.onrender.com/api/image`, {
         animal1,
         animal2,
       });
       setPetImageUrl(response.data.imageUrl);
+      console.log(response.data)
     } catch (err) {
       console.error(err);
       alert(err.message);

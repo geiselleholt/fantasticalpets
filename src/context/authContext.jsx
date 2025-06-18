@@ -9,7 +9,7 @@ export default function AuthProvider({ children }) {
   const { setUser } = userInfo();
   const [cookies, setCookie, removeCookie] = useCookies();
 
-  const baseURL = `http://localhost:3000/api/user`;
+  const baseURL = `https://fantasicalpetsbackend.onrender.com/api/user`;
 
   async function signUp(formData) {
     try {

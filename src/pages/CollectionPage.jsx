@@ -12,7 +12,7 @@ export default function CollectionPage() {
   const [pets, setPets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const API_BASE_URL = "http://localhost:3000/api";
+  const API_BASE_URL = "https://fantasicalpetsbackend.onrender.com/api";
 
   const getPets = async () => {
     setIsLoading(true);
