@@ -166,16 +166,16 @@ export default function HomePage() {
       </h2>
       <div className="flex flex-col sm:flex-row gap-4">
         <button
-          onClick={() => nav("/signUp")}
-          className="btn btn-accent btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
-        >
-          Sign Up
-        </button>
-        <button
           onClick={() => nav("/signIn")}
           className="btn btn-secondary btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary active:bg-secondary-focus"
         >
           Sign In
+        </button>
+        <button
+          onClick={() => nav("/signUp")}
+          className="btn btn-accent btn-lg px-8 py-3 rounded-full shadow-lg transform transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary active:bg-primary-focus"
+        >
+          Sign Up
         </button>
         <button
           onClick={() => nav("/guess")}
